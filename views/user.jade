@@ -1,0 +1,19 @@
+extends header
+
+block content
+  each post in posts
+    h2
+      a(href="/u/" + post.name)
+        img.headImg(src=post.head)
+      a(href="/u/" + post.name + "/" + post.time.day + "/" + post.title + "/" )= post.title
+    p.info
+      a(href="/u/" + post.name)= post.name
+      a(href="#")= post.time.minute
+
+      if(post.tags)
+        each tag in post.tags
+          a(class="label label-primary" href="/tags/" + tag)=tag
+
+    p.post= post.post
+
+  include paging

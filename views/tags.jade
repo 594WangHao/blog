@@ -1,0 +1,6 @@
+extends header
+
+block content
+  each tag in posts
+    p.info
+      a(class="label label-primary" href="/tags/" + tag)=tag

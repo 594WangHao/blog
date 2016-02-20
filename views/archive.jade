@@ -1,0 +1,12 @@
+extends header
+
+block content
+  ul.list-group
+    -var lastYear = 0
+    -if(posts == 0)
+      li.list-group-item 没有结果
+    each post, index in posts
+      li.list-group-item
+        time=post.time.day
+      li.list-group-item
+        a(href="/u/" + post.name + "/" + post.time.day + "/" + post.title)=post.title

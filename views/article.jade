@@ -1,0 +1,20 @@
+extends header
+
+block content
+  h2
+    a(href="/u/" + post.name + "/" + post.time.day + "/" + post.title)=post.title
+  p.info
+      a(href="/u/" + post.name class="danger")=post.name
+      a=post.time.minute
+
+      -if(user && user.name == post.name)
+        a(href="/edit/" + post.name + "/" + post.time.day + "/" + post.title) 编辑
+        a(href="/remove/" + post.name + "/" + post.time.day + "/" + post.title) 删除
+
+      if(post.tags)
+        each tag in post.tags
+          a(class="label label-primary" href="/tags/" + tag)=tag
+
+  p.post=post.post
+
+  include ./comment

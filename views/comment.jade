@@ -1,0 +1,30 @@
+each comment in post.comments
+    p.info
+      a(href=comment.website)
+        img(src=comment.head)
+      a(href=comment.website)=comment.name
+      a=comment.time
+    p=comment.content
+
+  div.forms
+    form(method="post" action="/u/" + post.name + "/" + post.time.day + "/" + post.title)
+      -if(user)
+        div.form-group
+          label 姓名
+            input.form-control(type="text" name="name" value=user.name)
+          label 邮箱
+            input.form-control(type="text" name="email" value=user.email)
+          label 网址
+            input.form-control(type="text" name="website" value="/u/" + user.name)
+      -else
+        div.form-group
+          label 姓名
+            input.form-control(type="text" name="name")
+          label 邮箱
+            input.form-control(type="text" name="email")
+          label 网址
+            input.form-control(type="text" name="website" value="http://")
+      textarea.form-control(name="content" rows="5" cols="80")
+      div.actions
+        input(type="submit" value="留言" class="btn btn-primary")
+

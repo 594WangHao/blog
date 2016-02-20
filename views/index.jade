@@ -1,0 +1,25 @@
+extends header
+
+block content
+  each post in posts
+    p
+      h3
+        a(href="/u/" + post.name + "/" + post.time.day + "/" + post.title)= post.title
+        a(href="/u/" + post.name)
+          img(src=post.head)
+    p.info
+      a(href="/u/" + post.name)= post.name
+      a(href="#")= post.time.minute
+
+      if(post.tags)
+        each tag in post.tags
+          a(class="label label-primary" href="/tags/" + tag)=tag
+
+      a(class="label label-success")="阅读:" + post.pv
+      a(class="label label-success")="评论:" + post.comments.length
+
+    p.post=post.post
+
+  include paging
+
+

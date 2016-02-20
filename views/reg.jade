@@ -1,0 +1,10 @@
+extends header
+
+block content
+  form(method="post" class="form-group")
+    input.form-control(type="text" name="name" placeholder="用户名")
+    input.form-control(type="password" name="password" placeholder="密码")
+    input.form-control(type="password" name="password-repeat" placeholder="确认密码")
+    input.form-control(type="email" name="email" placeholder="邮箱")
+    div.actions
+      input(type="submit" value="注册" class="btn btn-primary")

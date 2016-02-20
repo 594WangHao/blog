@@ -1,0 +1,17 @@
+extends header
+
+block content
+  form(method="post" class="form-group")
+    div.form-group
+      label 标题
+      input(type="text" name="title" class="form-control")
+    div.form-group
+      label 标签
+      input(type="text" name="tag1")
+      input(type="text" name="tag2")
+      input(type="text" name="tag3")
+    div.form-group
+      label 正文
+      textarea(name="post", cols="100", rows="20" class="form-control")
+    div.actions
+      input(type="submit" value="发表" class="btn btn-primary")

@@ -1,0 +1,17 @@
+extends header
+
+block content
+  form(method="post" action="/edit/" + post.name + "/" + post.time.day + "/" + post.title)
+    div.form-group
+      label 标题
+      input.form-control(type="text" name="title" disabled="disabled" value=post.title)
+    div.form-group
+      label 标签
+      input(type="text" name="tag1")
+      input(type="text" name="tag2")
+      input(type="text" name="tag3")
+    div.form-group
+      label 内容
+      textarea.form-control(name="post" rows="20" cols="100")=post.post
+    div.actions
+      input(type="submit" class="btn btn-primary" value="保存修改")
